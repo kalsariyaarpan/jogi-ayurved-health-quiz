@@ -58,7 +58,7 @@ html,
 body {
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -124,6 +124,7 @@ body {
    Header Navigation
    -------------------------------------------------------------------------- */
 .app-header {
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -597,6 +598,7 @@ section,
 
 /* Progress Section - Sticky at top below header when user scrolls */
 .quiz-progress-sticky {
+  position: -webkit-sticky;
   position: sticky;
   top: var(--header-height, 58px);
   z-index: 90;
