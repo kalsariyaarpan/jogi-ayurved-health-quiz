@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="gu">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JOGI Ayurved - Health Awareness Quiz | How સ્વસ્થ Are You?</title>
+  <meta name="description"
+    content="Take the JOGI Ayurved Health Quiz to assess your lifestyle, dosha balance, and overall wellness through traditional Ayurvedic wisdom.">
+
+  <!-- Google Fonts for English, Devanagari (Hindi) and Gujarati -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans+Gujarati:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Background Decorative Ambient Orbs -->
+  <div class="ambient-glow orb-1"></div>
+  <div class="ambient-glow orb-2"></div>
+
+  <!-- Header Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand-logo">
+        <img src="logo.png" alt="JOGI Ayurved Logo" class="official-logo header-official-logo">
+      </div>
+      <div class="header-right">
+        <div class="lang-badge" id="current-lang-badge" onclick="scrollToSection('lang-section')">
+          <span class="globe-icon">🌐</span>
+          <span id="active-lang-text">ગુજરાતી</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-wrapper">
+
+    <!-- LANDING & HERO SECTION -->
+    <section id="hero-section" class="hero-section">
+      <div class="container hero-container">
+
+        <div class="hero-pill" id="hero-eyebrow">
+          <span class="pulsing-dot"></span>
+          JOGI AYURVED • HEALTH AWARENESS EVENT
+        </div>
+
+        <h1 class="hero-title" id="hero-heading">
+          How <span class="swasth-wrapper"><span id="swasth-word">સ્વસ્થ</span><svg class="animated-underline-svg"
+              viewBox="0 0 200 20" preserveAspectRatio="none">
+              <path d="M5,15 C50,2 150,18 195,8 C140,18 60,12 10,16" stroke="currentColor" stroke-width="4" fill="none"
+                stroke-linecap="round" stroke-linejoin="round" />
+            </svg></span> Are You?
+        </h1>
+
+        <p class="hero-intro" id="hero-intro-text">
+          JOGI Ayurved is dedicated to promoting holistic health and wellness through traditional Ayurveda practices,
+          root-cause healing, and personalized lifestyle care.
+        </p>
+
+        <!-- Hospital Info Card -->
+        <div class="hospital-card">
+          <img src="logo.png" alt="JOGI Ayurved Logo" class="official-logo card-official-logo">
+          <div class="hospital-details">
+            <h3 class="hospital-title">JOGI Ayurved</h3>
+            <p class="hospital-services" id="hospital-services-text">Hospital Care • Digital Care • Wellness &
+              Panchakarma</p>
+          </div>
+        </div>
+
+        <!-- Scroll Prompt Indicator -->
+        <div class="scroll-down-hint">
+          <span id="scroll-hint-text">Choose language below to begin</span>
+          <div class="arrow-down-bounce">↓</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- LANGUAGE SELECTION SECTION -->
+    <section id="lang-section" class="lang-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="step-tag" id="lang-step-tag">STEP 1</span>
+          <h2 class="section-title" id="lang-select-title">SELECT YOUR LANGUAGE</h2>
+          <p class="section-sub" id="lang-select-sub">તમારી ભાષા પસંદ કરો / अपनी भाषा चुनें</p>
+        </div>
+
+        <div class="lang-grid">
+          <!-- Gujarati Card -->
+          <div class="lang-card active" data-lang="gu" onclick="setLanguage('gu', true)">
+            <div class="lang-icon-circle">ગુ</div>
+            <div class="lang-card-content">
+              <span class="lang-native">ગુજરાતી</span>
+              <span class="lang-english">Gujarati</span>
+            </div>
+            <div class="lang-check-icon">✓</div>
+          </div>
+
+          <!-- Hindi Card -->
+          <div class="lang-card" data-lang="hi" onclick="setLanguage('hi', true)">
+            <div class="lang-icon-circle">हि</div>
+            <div class="lang-card-content">
+              <span class="lang-native">हिन्दी</span>
+              <span class="lang-english">Hindi</span>
+            </div>
+            <div class="lang-check-icon">✓</div>
+          </div>
+
+          <!-- English Card -->
+          <div class="lang-card" data-lang="en" onclick="setLanguage('en', true)">
+            <div class="lang-icon-circle">EN</div>
+            <div class="lang-card-content">
+              <span class="lang-native">English</span>
+              <span class="lang-english">English</span>
+            </div>
+            <div class="lang-check-icon">✓</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUIZ SECTION -->
+    <section id="quiz-section" class="quiz-section">
+      <div class="container">
+
+        <!-- Sticky Progress Bar Header -->
+        <div class="quiz-progress-sticky">
+          <div class="progress-info-row">
+            <span class="progress-label" id="quiz-progress-label">Your Progress</span>
+            <span class="progress-counter" id="progress-counter-text">0 / 13 answered</span>
+          </div>
+          <div class="progress-bar-track">
+            <div class="progress-bar-fill" id="progress-bar-fill"></div>
+          </div>
+        </div>
+
+        <!-- Quiz Container Header -->
+        <div class="section-header quiz-header-text">
+          <span class="step-tag" id="quiz-step-tag">STEP 2</span>
+          <h2 class="section-title" id="quiz-main-title">Ayurvedic Health Assessment</h2>
+          <p class="section-sub" id="quiz-main-sub">Please answer all 13 questions thoughtfully based on your daily
+            routine.</p>
+        </div>
+
+        <!-- Validation Banner Notification -->
+        <div id="validation-banner" class="validation-banner hidden">
+          <span class="alert-icon">⚠️</span>
+          <span id="validation-text">Please answer all questions before submitting.</span>
+        </div>
+
+        <!-- Question Cards Container -->
+        <div id="questions-container" class="questions-container">
+          <!-- Dynamic Question Cards generated via JavaScript -->
+        </div>
+
+        <!-- Submit Button Wrapper -->
+        <div class="quiz-submit-wrapper">
+          <button id="btn-submit-quiz" class="btn-submit" onclick="submitQuiz()">
+            <span id="btn-submit-text">SUBMIT QUIZ</span>
+            <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- LOADING / PROCESSING SECTION -->
+    <section id="loading-section" class="loading-section hidden">
+      <div class="container">
+        <div class="loading-card">
+          <div class="loading-leaf">🌿</div>
+          <p class="loading-text" id="loading-text">Calculating your health score...</p>
+          <div class="loading-dots">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULT & REVIEW SECTION -->
+    <section id="result-section" class="result-section hidden">
+      <div class="container">
+
+        <!-- Result Header Card -->
+        <div class="result-hero-card">
+          <div class="result-badge-top" id="result-badge-text">QUIZ COMPLETED</div>
+          <h2 class="result-title" id="result-title-text">Your Health Score</h2>
+
+          <!-- Circular Score Indicator -->
+          <div class="score-circle-wrapper">
+            <svg class="score-svg" viewBox="0 0 160 160">
+              <circle class="circle-bg" cx="80" cy="80" r="70"></circle>
+              <circle class="circle-progress" id="score-circle-progress" cx="80" cy="80" r="70"></circle>
+            </svg>
+            <div class="score-inner-content">
+              <span class="score-percentage" id="score-percentage-text">0%</span>
+              <span class="score-fraction" id="score-fraction-text">0 / 13</span>
+            </div>
+          </div>
+
+          <!-- Evaluation Tier Tag & Summary -->
+          <div class="evaluation-box">
+            <h3 class="eval-title" id="eval-title-text">Swasthya Evaluation</h3>
+            <p class="eval-desc" id="eval-desc-text">Analyzing your Ayurvedic balance...</p>
+          </div>
+        </div>
+
+        <!-- Detailed Answer Review Section -->
+        <div class="review-container">
+          <div class="review-header">
+            <h3 class="review-main-title" id="review-main-title">Answer Review & Ayurvedic Guidance</h3>
+            <p class="review-sub-title" id="review-sub-title">See how your daily habits compare with ideal Ayurvedic
+              principles.</p>
+          </div>
+
+          <div id="review-list" class="review-list">
+            <!-- Dynamic Review Cards rendered via script.js -->
+          </div>
+        </div>
+
+        <!-- Restart Button Container -->
+        <div class="restart-wrapper">
+          <button class="btn-restart" onclick="restartQuiz()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+              <path d="M3 3v5h5" />
+            </svg>
+            <span id="btn-restart-text">TRY AGAIN</span>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="container footer-container">
+      <img src="logo.png" alt="JOGI Ayurved Logo" class="official-logo footer-official-logo">
+      <p class="footer-hospital">JOGI Ayurved Hospital & Digital Care</p>
+      <p class="footer-copy" id="footer-copy-text">Promoting Holistic Health & Ayurvedic Awareness</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
