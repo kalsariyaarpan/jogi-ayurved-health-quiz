@@ -583,7 +583,17 @@ let currentViewState = 'QUIZ'; // 'QUIZ' | 'SUBMITTING' | 'RESULT'
 // 4. INITIALIZATION & VIEW STATE HANDLING
 // ==========================================================================
 
+// Helper to dynamically calculate header height for sticky offsets
+function updateHeaderHeight() {
+  const header = document.querySelector('.app-header');
+  if (header) {
+    document.documentElement.style.setProperty('--header-height', `${header.offsetHeight}px`);
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  updateHeaderHeight();
+  window.addEventListener('resize', updateHeaderHeight);
   // Initialize default language and initial view state
   setLanguage(currentLang, false);
   setViewState('QUIZ');

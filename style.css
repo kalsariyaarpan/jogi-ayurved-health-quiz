@@ -39,6 +39,9 @@
   --radius-full: 9999px;
   --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Dynamic Header Height Fallback */
+  --header-height: 64px;
 }
 
 /* --------------------------------------------------------------------------
@@ -49,6 +52,13 @@
   margin: 0;
   padding: 0;
   -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
 }
 
 html {
@@ -62,8 +72,12 @@ body {
   color: var(--text-dark);
   line-height: 1.6;
   min-height: 100vh;
+  min-height: 100dvh;
   position: relative;
-  overflow-x: hidden;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
 }
 
 /* Ambient Decorative Background Glows */
@@ -74,19 +88,21 @@ body {
   pointer-events: none;
   z-index: 0;
   opacity: 0.45;
+  max-width: 100vw;
+  overflow: hidden;
 }
 
 .orb-1 {
-  width: 300px;
-  height: 300px;
+  width: min(300px, 80vw);
+  height: min(300px, 80vw);
   background: var(--light-sage);
   top: -80px;
   right: -50px;
 }
 
 .orb-2 {
-  width: 350px;
-  height: 350px;
+  width: min(350px, 90vw);
+  height: min(350px, 90vw);
   background: #e2ece9;
   top: 600px;
   left: -100px;
@@ -96,7 +112,9 @@ body {
   width: 100%;
   max-width: 720px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding-left: clamp(12px, 4vw, 20px);
+  padding-right: clamp(12px, 4vw, 20px);
+  box-sizing: border-box;
   position: relative;
   z-index: 1;
 }
@@ -108,25 +126,33 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(250, 248, 245, 0.9);
+  background: rgba(250, 248, 245, 0.96);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(45, 106, 79, 0.1);
-  padding: 12px 0;
+  border-bottom: 1px solid rgba(45, 106, 79, 0.12);
+  padding: 10px 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .header-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
   max-width: 720px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding-left: clamp(12px, 4vw, 20px);
+  padding-right: clamp(12px, 4vw, 20px);
+  box-sizing: border-box;
+  gap: 10px;
 }
 
 .brand-logo {
   display: flex;
   align-items: center;
+  min-width: 0;
+  flex-shrink: 1;
 }
 
 /* Official JOGI Ayurved Transparent Logo Rules */
@@ -145,8 +171,14 @@ body {
 }
 
 .header-official-logo {
-  max-height: 44px;
-  max-width: 200px;
+  max-height: 42px;
+  max-width: 160px;
+  width: auto;
+  height: auto;
+}
+
+.header-right {
+  flex-shrink: 0;
 }
 
 .lang-badge {
@@ -156,13 +188,14 @@ body {
   background: #ffffff;
   border: 1.5px solid var(--border-green);
   border-radius: var(--radius-full);
-  padding: 6px 14px;
-  font-size: 0.82rem;
+  padding: 6px 12px;
+  font-size: clamp(0.78rem, 3.2vw, 0.85rem);
   font-weight: 600;
   color: var(--mid-green);
   cursor: pointer;
   box-shadow: var(--shadow-sm);
   transition: var(--transition-fast);
+  white-space: nowrap;
 }
 
 .lang-badge:hover {
@@ -172,14 +205,17 @@ body {
 
 .globe-icon {
   font-size: 0.9rem;
+  line-height: 1;
 }
 
 /* --------------------------------------------------------------------------
    Hero Section
    -------------------------------------------------------------------------- */
 .hero-section {
-  padding: 40px 0 30px;
+  padding: clamp(24px, 5vw, 40px) 0 clamp(20px, 4vw, 30px);
   text-align: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .hero-container {
@@ -195,13 +231,17 @@ body {
   background: rgba(45, 106, 79, 0.08);
   border: 1px solid rgba(45, 106, 79, 0.2);
   color: var(--primary-green);
-  font-size: 0.72rem;
+  font-size: clamp(0.65rem, 2.6vw, 0.72rem);
   font-weight: 700;
-  letter-spacing: 1.2px;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  padding: 6px 16px;
+  padding: 6px 14px;
   border-radius: var(--radius-full);
-  margin-bottom: 20px;
+  margin-bottom: 18px;
+  max-width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  word-break: break-word;
 }
 
 .pulsing-dot {
@@ -210,6 +250,7 @@ body {
   background-color: var(--accent-green);
   border-radius: 50%;
   animation: pulseDot 2s infinite;
+  flex-shrink: 0;
 }
 
 @keyframes pulseDot {
@@ -230,12 +271,14 @@ body {
 }
 
 .hero-title {
-  font-size: 2.5rem;
+  font-size: clamp(1.65rem, 6.5vw, 2.5rem);
   font-weight: 800;
   color: var(--primary-green);
   line-height: 1.25;
   margin-bottom: 16px;
   letter-spacing: -0.5px;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 /* Visual Highlight Underline Animation for "સ્વસ્થ" */
@@ -286,11 +329,13 @@ body {
 }
 
 .hero-intro {
-  font-size: 1.05rem;
+  font-size: clamp(0.9rem, 3.6vw, 1.05rem);
   color: var(--text-muted);
   max-width: 580px;
   margin-bottom: 24px;
   line-height: 1.6;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 /* Hospital Info Card */
@@ -301,31 +346,43 @@ body {
   background: var(--card-bg);
   border: 1px solid rgba(45, 106, 79, 0.15);
   border-radius: var(--radius-md);
-  padding: 16px 20px;
+  padding: 14px 18px;
   box-shadow: var(--shadow-sm);
   text-align: left;
   width: 100%;
   max-width: 520px;
   margin-bottom: 24px;
+  box-sizing: border-box;
 }
 
 .card-official-logo {
-  max-height: 48px;
-  max-width: 160px;
+  max-height: 44px;
+  max-width: 140px;
+  width: auto;
+  height: auto;
   flex-shrink: 0;
 }
 
+.hospital-details {
+  flex: 1;
+  min-width: 0;
+}
+
 .hospital-title {
-  font-size: 1.05rem;
+  font-size: clamp(0.95rem, 3.8vw, 1.05rem);
   font-weight: 700;
   color: var(--primary-green);
   margin-bottom: 2px;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 .hospital-services {
-  font-size: 0.83rem;
+  font-size: clamp(0.78rem, 3.2vw, 0.83rem);
   color: var(--text-muted);
   font-weight: 500;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 .scroll-down-hint {
@@ -333,10 +390,11 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 6px;
-  font-size: 0.82rem;
+  font-size: clamp(0.78rem, 3.2vw, 0.82rem);
   color: var(--accent-green);
   font-weight: 600;
   opacity: 0.85;
+  text-align: center;
 }
 
 .arrow-down-bounce {
@@ -367,12 +425,16 @@ body {
    Language Selection Section
    -------------------------------------------------------------------------- */
 .lang-section {
-  padding: 24px 0 36px;
+  padding: 20px 0 32px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .step-tag {
@@ -388,29 +450,35 @@ body {
 }
 
 .section-title {
-  font-size: 1.5rem;
+  font-size: clamp(1.25rem, 5vw, 1.5rem);
   font-weight: 800;
   color: var(--primary-green);
   letter-spacing: -0.3px;
   margin-bottom: 4px;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 .section-sub {
-  font-size: 0.9rem;
+  font-size: clamp(0.825rem, 3.4vw, 0.9rem);
   color: var(--text-muted);
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 .lang-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .lang-card {
   background: var(--card-bg);
   border: 2px solid var(--border-light);
   border-radius: var(--radius-md);
-  padding: 18px 12px;
+  padding: 16px 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -419,12 +487,14 @@ body {
   position: relative;
   transition: var(--transition-fast);
   box-shadow: var(--shadow-sm);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .lang-card:hover {
   border-color: var(--border-green);
   background: var(--pale-green-bg);
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
 
@@ -435,8 +505,8 @@ body {
 }
 
 .lang-icon-circle {
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: rgba(45, 106, 79, 0.1);
   color: var(--mid-green);
@@ -444,9 +514,10 @@ body {
   align-items: center;
   justify-content: center;
   font-weight: 800;
-  font-size: 1.1rem;
-  margin-bottom: 10px;
+  font-size: 1.05rem;
+  margin-bottom: 8px;
   transition: var(--transition-fast);
+  flex-shrink: 0;
 }
 
 .lang-card.active .lang-icon-circle {
@@ -454,17 +525,23 @@ body {
   color: #ffffff;
 }
 
+.lang-card-content {
+  width: 100%;
+}
+
 .lang-native {
   display: block;
-  font-size: 1.1rem;
+  font-size: clamp(0.95rem, 4vw, 1.1rem);
   font-weight: 700;
   color: var(--primary-green);
   margin-bottom: 2px;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 .lang-english {
   display: block;
-  font-size: 0.78rem;
+  font-size: clamp(0.75rem, 3.2vw, 0.78rem);
   color: var(--text-muted);
   font-weight: 500;
 }
@@ -496,22 +573,40 @@ body {
    Quiz Section & Questions
    -------------------------------------------------------------------------- */
 .quiz-section {
-  padding: 24px 0 60px;
+  padding: 20px 0 50px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-/* Sticky Progress Header */
+/* Progress Header - Occupies dedicated layout space without overlapping */
 .quiz-progress-sticky {
-  position: sticky;
-  top: 61px;
-  z-index: 90;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid var(--border-green);
+  background: #ffffff;
+  border: 1.5px solid var(--border-green);
   border-radius: var(--radius-md);
-  padding: 12px 18px;
-  margin-bottom: 28px;
+  padding: 12px 16px;
+  margin-bottom: 24px;
   box-shadow: var(--shadow-md);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Sticky on Desktop (> 768px), Normal Flow on Mobile (<= 768px) */
+@media (min-width: 769px) {
+  .quiz-progress-sticky {
+    position: sticky;
+    top: calc(var(--header-height, 64px) + 12px);
+    z-index: 80;
+  }
+}
+
+@media (max-width: 768px) {
+  .quiz-progress-sticky {
+    position: relative;
+    top: 0;
+    z-index: 10;
+    padding: 10px 14px;
+    margin-bottom: 20px;
+  }
 }
 
 .progress-info-row {
@@ -519,10 +614,11 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 8px;
+  gap: 10px;
 }
 
 .progress-label {
-  font-size: 0.8rem;
+  font-size: clamp(0.75rem, 3.2vw, 0.8rem);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -530,9 +626,10 @@ body {
 }
 
 .progress-counter {
-  font-size: 0.85rem;
+  font-size: clamp(0.8rem, 3.5vw, 0.85rem);
   font-weight: 800;
   color: var(--mid-green);
+  white-space: nowrap;
 }
 
 .progress-bar-track {
@@ -552,7 +649,7 @@ body {
 }
 
 .quiz-header-text {
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 /* Validation Alert Banner */
@@ -563,13 +660,15 @@ body {
   background: var(--danger-bg);
   border: 1.5px solid var(--danger-border);
   color: var(--danger-color);
-  padding: 14px 18px;
+  padding: 12px 16px;
   border-radius: var(--radius-md);
-  font-size: 0.92rem;
+  font-size: clamp(0.85rem, 3.6vw, 0.92rem);
   font-weight: 600;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   box-shadow: var(--shadow-sm);
   animation: slideDown 0.3s ease;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 .validation-banner.hidden {
@@ -591,7 +690,8 @@ body {
 .questions-container {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 18px;
+  width: 100%;
 }
 
 /* Single Question Card */
@@ -599,9 +699,11 @@ body {
   background: var(--card-bg);
   border: 1.5px solid var(--border-light);
   border-radius: var(--radius-md);
-  padding: 22px 20px;
+  padding: clamp(16px, 4vw, 22px) clamp(14px, 4vw, 20px);
   box-shadow: var(--shadow-sm);
   transition: var(--transition-fast);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .question-card.answered {
@@ -635,8 +737,8 @@ body {
 .question-header {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
-  margin-bottom: 16px;
+  gap: 10px;
+  margin-bottom: 14px;
 }
 
 .question-number-badge {
@@ -645,36 +747,43 @@ body {
   color: var(--mid-green);
   background: var(--pale-green-bg);
   border: 1px solid var(--border-green);
-  padding: 3px 10px;
+  padding: 3px 9px;
   border-radius: var(--radius-sm);
   flex-shrink: 0;
+  margin-top: 2px;
 }
 
 .question-title {
-  font-size: 1.05rem;
+  font-size: clamp(0.975rem, 4.2vw, 1.125rem);
   font-weight: 700;
   color: var(--primary-green);
   line-height: 1.45;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 .options-group {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  width: 100%;
 }
 
 /* Radio Option Item */
 .option-label {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   background: #fafafa;
   border: 1.5px solid var(--border-light);
   border-radius: var(--radius-sm);
-  padding: 14px 16px;
+  padding: 12px 14px;
+  min-height: 48px;
   cursor: pointer;
   transition: var(--transition-fast);
   user-select: none;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .option-label:hover {
@@ -731,10 +840,13 @@ body {
 }
 
 .option-text {
-  font-size: 0.95rem;
+  font-size: clamp(0.875rem, 3.8vw, 0.975rem);
   font-weight: 500;
   color: var(--text-dark);
   line-height: 1.4;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  flex: 1;
 }
 
 .option-label.selected .option-text {
@@ -744,8 +856,9 @@ body {
 
 /* Submit Section */
 .quiz-submit-wrapper {
-  margin-top: 36px;
+  margin-top: 30px;
   text-align: center;
+  width: 100%;
 }
 
 .btn-submit {
@@ -755,17 +868,19 @@ body {
   gap: 12px;
   width: 100%;
   max-width: 420px;
+  min-height: 52px;
   background: linear-gradient(135deg, var(--primary-green), var(--mid-green));
   color: #ffffff;
   border: none;
   border-radius: var(--radius-full);
-  padding: 18px 32px;
-  font-size: 1.1rem;
+  padding: 14px 24px;
+  font-size: clamp(0.975rem, 4vw, 1.1rem);
   font-weight: 800;
   letter-spacing: 0.5px;
   cursor: pointer;
   box-shadow: 0 8px 24px rgba(27, 67, 50, 0.25);
   transition: var(--transition-smooth);
+  box-sizing: border-box;
 }
 
 .btn-submit:hover {
@@ -779,9 +894,10 @@ body {
 }
 
 .btn-arrow {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   transition: transform 0.2s ease;
+  flex-shrink: 0;
 }
 
 .btn-submit:hover .btn-arrow {
@@ -796,8 +912,10 @@ body {
    Loading / Processing Section
    -------------------------------------------------------------------------- */
 .loading-section {
-  padding: 60px 0;
+  padding: 50px 0;
   text-align: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .loading-section.hidden {
@@ -808,15 +926,17 @@ body {
   background: var(--card-bg);
   border: 1.5px solid var(--border-green);
   border-radius: var(--radius-lg);
-  padding: 48px 24px;
+  padding: clamp(32px, 8vw, 48px) 20px;
   text-align: center;
   box-shadow: var(--shadow-md);
   max-width: 440px;
   margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .loading-leaf {
-  font-size: 3rem;
+  font-size: clamp(2.5rem, 8vw, 3rem);
   margin-bottom: 16px;
   animation: pulseLeaf 1.2s ease-in-out infinite alternate;
 }
@@ -834,10 +954,12 @@ body {
 }
 
 .loading-text {
-  font-size: 1.15rem;
+  font-size: clamp(1rem, 4vw, 1.15rem);
   font-weight: 700;
   color: var(--primary-green);
   margin-bottom: 16px;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 .loading-dots {
@@ -894,7 +1016,9 @@ body {
    Result & Review Section
    -------------------------------------------------------------------------- */
 .result-section {
-  padding: 24px 0 60px;
+  padding: 20px 0 50px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .result-section.hidden {
@@ -905,10 +1029,12 @@ body {
   background: var(--card-bg);
   border: 1.5px solid var(--border-green);
   border-radius: var(--radius-lg);
-  padding: 36px 24px;
+  padding: clamp(24px, 5vw, 36px) clamp(16px, 4vw, 24px);
   text-align: center;
   box-shadow: var(--shadow-lg);
-  margin-bottom: 36px;
+  margin-bottom: 32px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .result-badge-top {
@@ -924,18 +1050,20 @@ body {
 }
 
 .result-title {
-  font-size: 1.8rem;
+  font-size: clamp(1.35rem, 5.5vw, 1.8rem);
   font-weight: 800;
   color: var(--primary-green);
-  margin-bottom: 24px;
+  margin-bottom: 20px;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 /* Circular Score Gauge */
 .score-circle-wrapper {
   position: relative;
-  width: 170px;
-  height: 170px;
-  margin: 0 auto 24px;
+  width: clamp(140px, 42vw, 170px);
+  height: clamp(140px, 42vw, 170px);
+  margin: 0 auto 20px;
 }
 
 .score-svg {
@@ -973,14 +1101,14 @@ body {
 }
 
 .score-percentage {
-  font-size: 2.2rem;
+  font-size: clamp(1.8rem, 7vw, 2.2rem);
   font-weight: 800;
   color: var(--primary-green);
   line-height: 1;
 }
 
 .score-fraction {
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 3.2vw, 0.9rem);
   font-weight: 700;
   color: var(--text-muted);
   margin-top: 4px;
@@ -991,59 +1119,74 @@ body {
   background: var(--pale-green-bg);
   border: 1px solid var(--border-green);
   border-radius: var(--radius-md);
-  padding: 18px 20px;
+  padding: 16px 18px;
   max-width: 500px;
   margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .eval-title {
-  font-size: 1.15rem;
+  font-size: clamp(1rem, 4vw, 1.15rem);
   font-weight: 800;
   color: var(--primary-green);
   margin-bottom: 6px;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 .eval-desc {
-  font-size: 0.92rem;
+  font-size: clamp(0.85rem, 3.6vw, 0.92rem);
   color: var(--text-dark);
   line-height: 1.5;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 /* Answer Review Cards */
 .review-container {
-  margin-bottom: 36px;
+  margin-bottom: 32px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .review-header {
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .review-main-title {
-  font-size: 1.4rem;
+  font-size: clamp(1.15rem, 4.8vw, 1.4rem);
   font-weight: 800;
   color: var(--primary-green);
   margin-bottom: 4px;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 .review-sub-title {
-  font-size: 0.9rem;
+  font-size: clamp(0.825rem, 3.4vw, 0.9rem);
   color: var(--text-muted);
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 .review-list {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  width: 100%;
 }
 
 .review-card {
   background: var(--card-bg);
   border-radius: var(--radius-md);
-  padding: 20px;
+  padding: clamp(14px, 4vw, 20px);
   box-shadow: var(--shadow-sm);
   border: 1.5px solid var(--border-light);
   transition: var(--transition-fast);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .review-card.correct-card {
@@ -1061,6 +1204,7 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
+  gap: 8px;
 }
 
 .review-q-num {
@@ -1074,10 +1218,11 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   font-weight: 800;
   padding: 4px 10px;
   border-radius: var(--radius-full);
+  white-space: nowrap;
 }
 
 .status-correct {
@@ -1091,27 +1236,43 @@ body {
 }
 
 .review-q-title {
-  font-size: 1rem;
+  font-size: clamp(0.95rem, 3.8vw, 1rem);
   font-weight: 700;
   color: var(--primary-green);
-  margin-bottom: 14px;
+  margin-bottom: 12px;
   line-height: 1.45;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 .review-answers-box {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
+  width: 100%;
 }
 
 .ans-row {
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
-  gap: 8px;
-  font-size: 0.9rem;
+  gap: 4px;
+  font-size: clamp(0.85rem, 3.6vw, 0.9rem);
   padding: 8px 12px;
   border-radius: var(--radius-sm);
+  overflow-wrap: anywhere;
+  word-break: normal;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 480px) {
+  .ans-row {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 8px;
+  }
 }
 
 .ans-user-wrong {
@@ -1134,11 +1295,13 @@ body {
 .ayurvedic-advice-box {
   background: rgba(255, 255, 255, 0.85);
   border-left: 3px solid var(--mid-green);
-  padding: 10px 14px;
+  padding: 10px 12px;
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  font-size: 0.86rem;
+  font-size: clamp(0.825rem, 3.4vw, 0.86rem);
   color: var(--text-dark);
   line-height: 1.5;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 .ayurvedic-advice-box strong {
@@ -1148,6 +1311,7 @@ body {
 /* Restart Button */
 .restart-wrapper {
   text-align: center;
+  width: 100%;
 }
 
 .btn-restart {
@@ -1159,17 +1323,19 @@ body {
   color: var(--primary-green);
   border: 2px solid var(--border-green);
   border-radius: var(--radius-full);
-  padding: 14px 28px;
-  font-size: 1rem;
+  padding: 12px 24px;
+  font-size: clamp(0.9rem, 3.8vw, 1rem);
   font-weight: 800;
   cursor: pointer;
   box-shadow: var(--shadow-sm);
   transition: var(--transition-fast);
+  min-height: 48px;
 }
 
 .btn-restart svg {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
 }
 
 .btn-restart:hover {
@@ -1185,6 +1351,8 @@ body {
   padding: 24px 0;
   text-align: center;
   background: #ffffff;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .footer-container {
@@ -1195,72 +1363,106 @@ body {
 }
 
 .footer-official-logo {
-  max-height: 46px;
-  max-width: 170px;
-  margin-bottom: 8px;
+  max-height: 40px;
+  max-width: 150px;
+  width: auto;
+  height: auto;
+  margin-bottom: 6px;
 }
 
 .footer-hospital {
-  font-size: 0.9rem;
+  font-size: clamp(0.825rem, 3.5vw, 0.9rem);
   font-weight: 700;
   color: var(--primary-green);
 }
 
 .footer-copy {
-  font-size: 0.78rem;
+  font-size: clamp(0.725rem, 3vw, 0.78rem);
   color: var(--text-muted);
   margin-top: 2px;
 }
 
 /* --------------------------------------------------------------------------
-   Responsive Layout & Media Queries
+   Responsive Media Queries & Fine-Tuning
    -------------------------------------------------------------------------- */
-@media (max-width: 480px) {
-  .header-official-logo {
-    max-height: 36px;
-    max-width: 140px;
-  }
-
-  .card-official-logo {
-    max-height: 42px;
-    max-width: 130px;
-  }
-
-  .footer-official-logo {
-    max-height: 40px;
-    max-width: 140px;
-  }
-
-  .hero-title {
-    font-size: 2rem;
-  }
-
+@media (max-width: 560px) {
   .lang-grid {
     grid-template-columns: 1fr;
+    gap: 10px;
   }
 
   .lang-card {
     flex-direction: row;
     justify-content: flex-start;
     text-align: left;
-    gap: 16px;
-    padding: 14px 16px;
+    gap: 14px;
+    padding: 12px 14px;
   }
 
   .lang-icon-circle {
     margin-bottom: 0;
   }
+}
+
+@media (max-width: 480px) {
+  .header-official-logo {
+    max-height: 36px;
+    max-width: 135px;
+  }
+
+  .card-official-logo {
+    max-height: 38px;
+    max-width: 120px;
+  }
+
+  .footer-official-logo {
+    max-height: 36px;
+    max-width: 130px;
+  }
+
+  .lang-badge {
+    padding: 5px 10px;
+    gap: 4px;
+  }
+}
+
+@media (max-width: 375px) {
+  .header-container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .header-official-logo {
+    max-height: 32px;
+    max-width: 120px;
+  }
 
   .question-card {
-    padding: 18px 16px;
+    padding: 14px 12px;
   }
 
   .option-label {
-    padding: 12px 14px;
+    padding: 10px 12px;
+    gap: 10px;
   }
 
-  .quiz-progress-sticky {
-    top: 55px;
-    padding: 10px 14px;
+  .question-header {
+    gap: 8px;
+  }
+}
+
+@media (max-width: 360px) {
+  .header-official-logo {
+    max-width: 110px;
+  }
+
+  .lang-badge {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+  }
+
+  .question-number-badge {
+    padding: 2px 7px;
+    font-size: 0.75rem;
   }
 }
