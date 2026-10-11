@@ -58,26 +58,26 @@
             </svg></span> Are You?
         </h1>
 
-        <p class="hero-intro" id="hero-intro-text">
+        <!-- <p class="hero-intro" id="hero-intro-text">
           JOGI Ayurved is dedicated to promoting holistic health and wellness through traditional Ayurveda practices,
           root-cause healing, and personalized lifestyle care.
-        </p>
+        </p> -->
 
         <!-- Hospital Info Card -->
-        <div class="hospital-card">
+        <!-- <div class="hospital-card">
           <img src="logo.png" alt="JOGI Ayurved Logo" class="official-logo card-official-logo">
           <div class="hospital-details">
             <h3 class="hospital-title">JOGI Ayurved</h3>
             <p class="hospital-services" id="hospital-services-text">Hospital Care • Digital Care • Wellness &
               Panchakarma</p>
           </div>
-        </div>
+        </div> -->
 
         <!-- Scroll Prompt Indicator -->
-        <div class="scroll-down-hint">
+        <!-- <div class="scroll-down-hint">
           <span id="scroll-hint-text">Choose language below to begin</span>
           <div class="arrow-down-bounce">↓</div>
-        </div>
+        </div> -->
 
       </div>
     </section>
@@ -194,23 +194,72 @@
           <div class="result-badge-top" id="result-badge-text">QUIZ COMPLETED</div>
           <h2 class="result-title" id="result-title-text">Your Health Score</h2>
 
-          <!-- Circular Score Indicator -->
-          <div class="score-circle-wrapper">
-            <svg class="score-svg" viewBox="0 0 160 160">
-              <circle class="circle-bg" cx="80" cy="80" r="70"></circle>
-              <circle class="circle-progress" id="score-circle-progress" cx="80" cy="80" r="70"></circle>
+          <!-- Dynamic Three-Segment Donut Chart Indicator -->
+          <div class="score-circle-wrapper" id="score-circle-wrapper">
+            <svg class="score-svg" viewBox="0 0 220 220" aria-hidden="true">
+              <!-- Center White Disk -->
+              <circle cx="110" cy="110" r="56" fill="#ffffff" />
+
+              <!-- Seamless Dynamic Segment Arc Paths -->
+              <path class="donut-segment segment-green" id="segment-green" fill="none" stroke="#22c55e"
+                stroke-width="28" stroke-linecap="butt" />
+              <path class="donut-segment segment-amber" id="segment-amber" fill="none" stroke="#f59e0b"
+                stroke-width="28" stroke-linecap="butt" />
+              <path class="donut-segment segment-red" id="segment-red" fill="none" stroke="#ef4444" stroke-width="28"
+                stroke-linecap="butt" />
+
+              <!-- Connector Lines for Small Segments (<6%) -->
+              <line id="line-green" class="connector-line" stroke-width="1.5" stroke-linecap="round"
+                style="display:none;" />
+              <line id="line-amber" class="connector-line" stroke-width="1.5" stroke-linecap="round"
+                style="display:none;" />
+              <line id="line-red" class="connector-line" stroke-width="1.5" stroke-linecap="round"
+                style="display:none;" />
+
+              <!-- Dynamic Percentage Text Labels Inside/Outside Ring Segments -->
+              <text id="label-green" class="segment-label label-green" text-anchor="middle"
+                dominant-baseline="central">0%</text>
+              <text id="label-amber" class="segment-label label-amber" text-anchor="middle"
+                dominant-baseline="central">0%</text>
+              <text id="label-red" class="segment-label label-red" text-anchor="middle"
+                dominant-baseline="central">0%</text>
             </svg>
+
+            <!-- White Empty Center with Score Display (Temporarily Commented Out) -->
+            <!--
             <div class="score-inner-content">
               <span class="score-percentage" id="score-percentage-text">0%</span>
               <span class="score-fraction" id="score-fraction-text">0 / 13</span>
             </div>
+            -->
+          </div>
+
+          <!-- Overall Result Status Label -->
+          <!-- <div class="score-status-badge" id="score-status-badge">
+            <span id="score-status-text"></span>  
+          </div> -->
+
+          <!-- Score Range Color Legend Bar -->
+          <div class="score-legend-bar" id="score-legend-bar">
+            <div class="legend-item legend-green">
+              <span class="legend-dot"></span>
+              <span class="legend-text" id="legend-green-text">૬૭%–૧૦૦% ઉત્કૃષ્ટ</span>
+            </div>
+            <div class="legend-item legend-amber">
+              <span class="legend-dot"></span>
+              <span class="legend-text" id="legend-amber-text">૩૪%–૬૬% મધ્યમ</span>
+            </div>
+            <div class="legend-item legend-red">
+              <span class="legend-dot"></span>
+              <span class="legend-text" id="legend-red-text">૦%–૩૩% ઓછો સ્કોર</span>
+            </div>
           </div>
 
           <!-- Evaluation Tier Tag & Summary -->
-          <div class="evaluation-box">
-            <h3 class="eval-title" id="eval-title-text">Swasthya Evaluation</h3>
-            <p class="eval-desc" id="eval-desc-text">Analyzing your Ayurvedic balance...</p>
-          </div>
+          <!-- <div class="evaluation-box">
+              <h3 class="eval-title" id="eval-title-text">Swasthya Evaluation</h3>
+              <p class="eval-desc" id="eval-desc-text">Analyzing your Ayurvedic balance...</p>
+            </div> -->
         </div>
 
         <!-- Detailed Answer Review Section -->
@@ -246,7 +295,7 @@
   <footer class="app-footer">
     <div class="container footer-container">
       <img src="logo.png" alt="JOGI Ayurved Logo" class="official-logo footer-official-logo">
-      <p class="footer-hospital">JOGI Ayurved Hospital & Digital Care</p>
+      <p class="footer-hospital">JOGI Ayurved MultiSpeciality Hospital </p>
       <p class="footer-copy" id="footer-copy-text">Promoting Holistic Health & Ayurvedic Awareness</p>
     </div>
   </footer>

@@ -49,9 +49,16 @@ const UI_STRINGS = {
     reviewMainTitle: "ઉત્તરોનું સમીક્ષા અને આયુર્વેદિક સલાહ",
     reviewSubTitle: "જુઓ કે તમારી દિનચર્યા આયુર્વેદના નિયમો સાથે કેટલી અનુકૂળ છે.",
     correctLabel: "સાચો જવાબ",
+    mediumLabel: "મધ્યમ પસંદગી",
     wrongLabel: "ખોટો જવાબ",
     yourAnsLabel: "તમારો ઉત્તર:",
     correctAnsLabel: "શ્રેષ્ઠ આયુર્વેદિક પસંદગી:",
+    statusNeedsImprovement: "સુધારાની જરૂર છે",
+    statusGoodEffort: "સારો પ્રયાસ",
+    statusExcellent: "ઉત્કૃષ્ટ",
+    legendGreenText: "૬૭%–૧૦૦% ઉત્કૃષ્ટ",
+    legendAmberText: "૩૪%–૬૬% મધ્યમ",
+    legendRedText: "૦%–૩૩% ઓછો સ્કોર",
     btnRestartText: "ફરીથી પ્રયાસ કરો",
     footerCopy: "આયુર્વેદિક જાગૃતિ અને સર્વાંગી સ્વાસ્થ્યનો સંગમ"
   },
@@ -82,9 +89,16 @@ const UI_STRINGS = {
     reviewMainTitle: "उत्तर समीक्षा एवं आयुर्वेदिक परामर्श",
     reviewSubTitle: "जानें कि आपकी जीवनशैली आयुर्वेदिक सिद्धांतों के कितने अनुरूप है।",
     correctLabel: "सही उत्तर",
-    wrongLabel: "असंगत उत्तर",
+    mediumLabel: "मध्यम विकल्प",
+    wrongLabel: "गलत उत्तर",
     yourAnsLabel: "आपका उत्तर:",
     correctAnsLabel: "उत्तम आयुर्वेदिक विकल्प:",
+    statusNeedsImprovement: "सुधार की आवश्यकता है",
+    statusGoodEffort: "अच्छा प्रयास",
+    statusExcellent: "उत्कृष्ट",
+    legendGreenText: "67%–100% उत्कृष्ट",
+    legendAmberText: "34%–66% मध्यम",
+    legendRedText: "0%–33% कम स्कोर",
     btnRestartText: "पुनः प्रयास करें",
     footerCopy: "आयुर्वेदिक जागरूकता एवं समग्र स्वास्थ्य संवर्धन"
   },
@@ -115,9 +129,16 @@ const UI_STRINGS = {
     reviewMainTitle: "Answer Review & Ayurvedic Wisdom",
     reviewSubTitle: "See how your daily habits compare with ideal Ayurvedic principles.",
     correctLabel: "Correct Choice",
+    mediumLabel: "Moderate Choice",
     wrongLabel: "Needs Alignment",
     yourAnsLabel: "Your Answer:",
     correctAnsLabel: "Optimal Ayurvedic Choice:",
+    statusNeedsImprovement: "Needs Improvement",
+    statusGoodEffort: "Good Effort",
+    statusExcellent: "Excellent",
+    legendGreenText: "67%–100% Excellent",
+    legendAmberText: "34%–66% Middle Score",
+    legendRedText: "0%–33% Low Score",
     btnRestartText: "TRY AGAIN",
     footerCopy: "Promoting Holistic Health & Ayurvedic Awareness"
   }
@@ -182,7 +203,7 @@ const QUIZ_DATA = {
         "૧૦ થી વધુ કલાક"
       ],
       correct: 0,
-      explanation: "૪ કલાકથી ઓછો સ્ક્રીન ટાઈમ હોવો આંખોના સ્વાસ્થ્ય માટે યોગ્ય છે. જો તમારો સ્ક્રીન ટાઈમ વધુ હોય તો આંખોની કાળજી માટે રોજ નેત્ર પ્રક્ષાલન કરવું હિતકારી છે."
+      explanation: "૪ કલાકથી ઓછો સ્ક્રીન ટાઈમ હોવો આંખોના સ્વાસ્થ્ય માટે યોગ્ય છે. જો તમારો સ્ક્રીન ટાઈમ વધુ હોય તો આંખોની કાળજી માટે રોજ ત્રિફળા થી આંખો ધોવી ફાયદાકારક છે."
     },
     {
       id: 6,
@@ -193,7 +214,7 @@ const QUIZ_DATA = {
         "અનિયમિત સમય અને માત્રા"
       ],
       correct: 0,
-      explanation: "દિવસમાં ૨ વાર સમતોલ ભોજન લેવું પાચન માટે ઉત્તમ છે. વધારે પડતું (૪ થી વધુ વાર) ખાવાથી શરીરમાં આળસ અને કફ વધે છે, જ્યારે અનિયમિત ખાવાથી ગેસ, એસિડિટી અને કબજિયાત થાય છે."
+      explanation: "દિવસમાં ૨ વાર સમતોલ ભોજન લેવું પાચન માટે ઉત્તમ છે. વધારે પડતું (૪ થી વધુ વાર) ખાવાથી શરીરમાં આળસ અને કફ દોષ વધે છે, જ્યારે અનિયમિત ખાવાથી ગેસ, એસિડિટી અને કબજિયાત થાય છે."
     },
     {
       id: 7,
@@ -204,7 +225,7 @@ const QUIZ_DATA = {
         "યોગ્ય માત્રા કરતાં ઓછું"
       ],
       correct: 0,
-      explanation: "આયુર્વેદ પ્રમાણે જ્યારે તરસ લાગે ત્યારે યોગ્ય માત્રામાં પાણી પીવું શ્રેષ્ઠ છે. જરૂર કરતાં વધુ પાણી પીવાથી જઠરાગ્નિ મંદ થાય છે અને સોજા આવી શકે છે, જ્યારે બહુ ઓછું પાણી પીવાથી કબજિયાત કે પથરી થઈ શકે છે."
+      explanation: "આયુર્વેદ પ્રમાણે જ્યારે તરસ લાગે ત્યારે યોગ્ય માત્રામાં પાણી પીવું એ શ્રેષ્ઠ છે જરૂર ન હોય છતાં એ જબરજસ્તી ચાર લીટર પાણી પીવું એ યોગ્ય નથી તેનાથી જઠરાગ્નિ મંદ થાય છે સોજો આવી શકે છે અને બહુ ઓછું પાણી પીવાથી કબજિયાત કે પથરી જેવા રોગો થઈ શકે છે."
     },
     {
       id: 8,
@@ -215,7 +236,7 @@ const QUIZ_DATA = {
         "મહિનામાં ૭ થી ૮ વાર"
       ],
       correct: 0,
-      explanation: "વધારે પડતું જંક ફૂડ અને સ્પાઈસી ખોરાક સ્વાસ્થ્ય માટે હાનિકારક છે. તેનાથી ચયાપચય બગડે છે અને રોગો થાય છે, માટે બને ત્યાં સુધી ઘરનો તાજો આહાર પસંદ કરવો."
+      explanation: "વધારે પડતું જંક ફૂડ અને સ્પાઈસી ખોરાક સ્વાસ્થ્ય માટે હાનિકારક છે. તેનાથી ચયાપચય બગડે છે અને રોગો થાય છે, માટે બને ત્યાં સુધી ઘરનો પૌષ્ટિક આહાર પસંદ કરવો."
     },
     {
       id: 9,
@@ -226,7 +247,7 @@ const QUIZ_DATA = {
         "અનિંદ્રા (ઊંઘ ન આવવી)"
       ],
       correct: 0,
-      explanation: "ગાઢ નિંદ્રા દર્શાવે છે કે મન શાંત છે. જો અવાજથી જાગી જવાતું હોય કે અનિંદ્રા રહેતી હોય તો તે મનમાં સતત વિચારો, સ્ટ્રેસ અને વાયુ પ્રકોપ દર્શાવે છે. રાત્રે વૈદ્યની સલાહ મુજબ નસ્ય કરવું હિતકારી છે."
+      explanation: "ગાઢ નિંદ્રા દર્શાવે છે કે મન શાંત છે. જો અવાજથી જાગી જવાતું હોય કે અનિંદ્રા રહેતી હોય તો તે મનમાં સતત વિચારો, સ્ટ્રેસ અને વાયુ પ્રકોપ દર્શાવે છે. રાત્રે સુતા પહેલા વૈદ્યની સલાહ મુજબ નસ્ય કરવું હિતકારી છે."
     },
     {
       id: 10,
@@ -237,7 +258,7 @@ const QUIZ_DATA = {
         "તરત સૂઈ જાઓ છો"
       ],
       correct: 0,
-      explanation: "જમ્યાના ૩૦ મિનિટ પછી ૧૦૦ કદમ (શતપદી) હળવું ચાલવું પાચનમાં મદદ કરે છે. જમ્યા પછી તરત બેસી રહેવાથી કે સૂઈ જવાથી શરીરમાં કફ પ્રકોપ થાય છે અને આળસ વધે છે."
+      explanation: "જમ્યાના ૩૦ મિનિટ પછી ૧૦૦ કદમ (શતપદી) હળવું ચાલવું પાચનમાં મદદ કરે છે. જમ્યા પછી તરત બેસી રહેવાથી કે સૂઈ જવાથી શરીરમાં વજન વધે છે અને આળસ વધે છે."
     },
     {
       id: 11,
@@ -248,7 +269,7 @@ const QUIZ_DATA = {
         "બ્રેકફાસ્ટ skip કરું છું"
       ],
       correct: 0,
-      explanation: "સવારે નિયમિત હળવો નાસ્તો કરવો જોઈએ જેથી આખા દિવસ દરમિયાન ઊર્જા જળવાય. ૪ કલાકથી વધારે સમય ભૂખ્યા રહેવાથી શરીરમાં વાયુનો પ્રકોપ થાય છે."
+      explanation: "સવારે નિયમિત હળવો નાસ્તો કરવો જોઈએ જેથી આખા દિવસ દરમિયાન ઊર્જા જળવાય. ૪ કલાકથી વધારે સમય ભૂખ્યા રહેવાથી શરીરમાં ગેસ વધે છે અને ઓડકાર આવી શકે છે."
     },
     {
       id: 12,
@@ -259,7 +280,7 @@ const QUIZ_DATA = {
         "પેટ સાફ થયા બાદ સંતુષ્ટી હોતી નથી"
       ],
       correct: 0,
-      explanation: "સવારે કોઈ પણ ઔષધિ વગર પેટ સાફ થવું ઉત્તમ સ્વાસ્થ્યની નિશાની છે ('સમ્યક મલપ્રવૃત્તિ'). અનિયમિતતા કે અસંતોષ મુખ્યત્વે વાત દોષના અસંતુલન અને અનિયમિત જીવનશૈલીને કારણે થાય છે."
+      explanation: "સવારે કોઈ પણ ઔષધિ વગર પેટ સાફ થવાના સમય માં અનિયમિતતા કે અસંતોષ હોય તો તે અયોગ્ય જીવનશૈલી અને શરીરમાં વાયુ વધવાના કારણે થાય છે."
     },
     {
       id: 13,
@@ -328,7 +349,7 @@ const QUIZ_DATA = {
         "10 घंटे से अधिक"
       ],
       correct: 0,
-      explanation: "4 घंटे से कम स्क्रीन टाइम नेत्र स्वास्थ्य के लिए अच्छा है। अधिक स्क्रीन टाइम होने पर नेत्रों की सुरक्षा के लिए प्रतिदिन नेत्र प्रक्षालन करना चाहिए।"
+      explanation: "4 घंटे से कम स्क्रीन टाइम नेत्र स्वास्थ्य के लिए अच्छा है। अधिक स्क्रीन टाइम होने पर नेत्रों की सुरक्षा के लिए प्रतिदिन त्रिफला से आँखों धोना फाइदाकारक है।"
     },
     {
       id: 6,
@@ -339,7 +360,7 @@ const QUIZ_DATA = {
         "अनियमित समय और मात्रा"
       ],
       correct: 0,
-      explanation: "दिन में 2 बार संतुलित भोजन लेना पाचन तंत्र के लिए आदर्श है। 4 बार से अधिक खाने से कफ और आलस्य बढ़ता है, जबकि अनियमित खान-पान से गैस, एसिडिटी और कब्ज होता है।"
+      explanation: "दिन में 2 बार संतुलित भोजन लेना पाचन तंत्र के लिए आदर्श है। 4 बार से अधिक खाने से कफ दोष और आलस्य बढ़ता है, जबकि अनियमित खान-पान से गैस, एसिडिटी और कब्ज होता है।"
     },
     {
       id: 7,
@@ -350,7 +371,7 @@ const QUIZ_DATA = {
         "आवश्यकता से बहुत कम"
       ],
       correct: 0,
-      explanation: "आयुर्वेद के अनुसार केवल प्यास लगने पर ही जल का सेवन करना चाहिए। अधिक पानी पीने से जठराग्नि मंद होती है और सूजन आ सकती है, जबकि कम पानी से कब्ज व पथरी की समस्या होती है।"
+      explanation: "आयुर्वेद के अनुसार, प्यास लगने पर उचित मात्रा में पानी पीना सबसे अच्छा होता है। हालांकि, जरूरत न होने पर भी जबरदस्ती चार लीटर पानी पीना उचित नहीं है। इससे पेट की अग्नि कमजोर हो जाती है, सूजन हो सकती है, और बहुत कम पानी पीने से कब्ज या पथरी जैसी बीमारियां हो सकती हैं।"
     },
     {
       id: 8,
@@ -361,7 +382,7 @@ const QUIZ_DATA = {
         "महीने में 7 से 8 बार"
       ],
       correct: 0,
-      explanation: "अत्यधिक जंक फूड और मसालेदार खाना स्वास्थ्य के लिए हानिकारक है। इससे पाचन बिगड़ता है और बीमारियाँ जन्म लेती हैं। ताजा घर का भोजन ही सर्वोत्तम है।"
+      explanation: "अत्यधिक जंक फूड और मसालेदार खाना स्वास्थ्य के लिए हानिकारक है। इससे पाचन बिगड़ता है और बीमारियाँ जन्म लेती हैं। घर का पौष्टिक भोजन ही सर्वोत्तम है।"
     },
     {
       id: 9,
@@ -372,7 +393,7 @@ const QUIZ_DATA = {
         "अनिद्रा (नींद न आना)"
       ],
       correct: 0,
-      explanation: "गहरी नींद यह दर्शाती है कि आपका मन शांत है। हल्की आवाज में नींद टूटना या अनिद्रा वात दोष और मानसिक तनाव का प्रतीक है। रात को नस्य (Nasya) प्रयोग लाभदायक होता है।"
+      explanation: "गहरी नींद यह दर्शाती है कि आपका मन शांत है। हल्की आवाज में नींद टूटना या अनिद्रा वात दोष और मानसिक तनाव का प्रतीक है। रात को सोने से पहेले नस्य (Nasya) प्रयोग लाभदायक होता है।"
     },
     {
       id: 10,
@@ -383,7 +404,7 @@ const QUIZ_DATA = {
         "तुरंत सो जाते हैं"
       ],
       correct: 0,
-      explanation: "भोजन के 30 मिनट बाद 100 कदम टहलना (शतपदी) पाचन में सहायक होता है। तुरंत बैठने या सोने से शरीर में कफ बढ़ता है और आलस्य आता है।"
+      explanation: "भोजन करने के 30 मिनट बाद धीरे-धीरे 100 कदम चलना पाचन में सहायक होता है। भोजन के तुरंत बाद बैठने या लेटने से वजन बढ़ता है और आलस्य बढ़ता है।"
     },
     {
       id: 11,
@@ -394,7 +415,7 @@ const QUIZ_DATA = {
         "नाश्ता स्किप कर देता/देती हूँ"
       ],
       correct: 0,
-      explanation: "सुबह नियमित हल्का नाश्ता करने से दिनभर ऊर्जा बनी रहती है। 4 घंटे से अधिक समय तक भूखे रहने से शरीर में वात दोष प्रकोपित होता है।"
+      explanation: "सुबह नियमित हल्का नाश्ता करने से दिनभर ऊर्जा बनी रहती है। चार घंटे से अधिक समय तक भूखे रहने से शरीर में गैस बन सकती है और डकार आ सकती है।"
     },
     {
       id: 12,
@@ -405,7 +426,7 @@ const QUIZ_DATA = {
         "पेट साफ होने के बाद भी असंतुष्टि रहती है"
       ],
       correct: 0,
-      explanation: "सुबह बिना किसी औषधि के सुगमता से पेट साफ होना उत्तम स्वास्थ्य का लक्षण है ('सम्यक मलप्रवृत्ति')। अनियमितता या असंतोष वात दोष के असंतुलन का कारण है।"
+      explanation: "यदि बिना किसी दवा के सुबह के समय मल त्याग में अनियमितता या असंतोष होता है, तो यह अनुचित जीवनशैली और शरीर में गैस की मात्रा बढ़ने के कारण होता है।"
     },
     {
       id: 13,
@@ -474,7 +495,7 @@ const QUIZ_DATA = {
         "More than 10 hours"
       ],
       correct: 0,
-      explanation: "Keeping screen time under 4 hours preserves eye vigor and reduces mental fatigue. Higher screen time requires daily Ayurvedic eye therapy (Netra Prakshalana)."
+      explanation: "Keeping screen time under 4 hours preserves eye vigor and reduces mental fatigue. If you have a lot of screen time, washing your eyes with Triphala daily is beneficial for eye care."
     },
     {
       id: 6,
@@ -485,7 +506,7 @@ const QUIZ_DATA = {
         "Irregular timing & portions"
       ],
       correct: 0,
-      explanation: "Eating 2 structured meals daily preserves digestive strength. Eating >4 times leads to Kapha stagnation and lethargy, whereas erratic eating causes acidity and bloating."
+      explanation: "Eating 2 structured meals daily preserves digestive strength. Eating >4 times leads to Kapha dosha increase, stagnation and lethargy, whereas erratic eating causes acidity and bloating."
     },
     {
       id: 7,
@@ -496,7 +517,7 @@ const QUIZ_DATA = {
         "Significantly less than needed"
       ],
       correct: 0,
-      explanation: "Ayurveda stresses drinking water according to natural thirst. Excess forced water dampens digestive fire and causes fluid retention; inadequate water triggers constipation and stones."
+      explanation: "According to Ayurveda, it is best to drink the right amount of water when you feel thirsty. However, it is not advisable to forcefully drink four liters of water even if you don't need it. This weakens the stomach fire, can cause swelling, and drinking too little water can lead to diseases like constipation or stones."
     },
     {
       id: 8,
@@ -507,7 +528,7 @@ const QUIZ_DATA = {
         "7 to 8 times a month"
       ],
       correct: 0,
-      explanation: "Restricting junk and spicy foods to 1-2 times monthly protects digestive microflora. Freshly cooked, home-prepared meals promote long-term vitality."
+      explanation: "Excessive junk food and spicy food are harmful to health. They impair metabolism and cause diseases, so choose nutritious home-cooked food whenever possible."
     },
     {
       id: 9,
@@ -518,7 +539,7 @@ const QUIZ_DATA = {
         "Insomnia (difficulty sleeping)"
       ],
       correct: 0,
-      explanation: "Restful deep sleep reflects mental peace and balanced doshas. Light sleeping or insomnia signifies Vata dominance and stress, often relieved by Ayurvedic Nasya."
+      explanation: "Deep sleep indicates that the mind is calm. If you are woken up by noise or have insomnia, it indicates constant thoughts, stress, and anger in the mind. It is beneficial to do Nasya as advised by your doctor before going to bed at night."
     },
     {
       id: 10,
@@ -529,7 +550,7 @@ const QUIZ_DATA = {
         "Go to sleep immediately"
       ],
       correct: 0,
-      explanation: "Strolling ~100 steps (Shatapadi) 30 mins post-meal enhances digestion. Sleeping or sitting immediately after eating aggravates Kapha and promotes sluggishness."
+      explanation: "Walking 100 steps slowly 30 minutes after a meal helps in digestion. Sitting or lying down immediately after a meal increases weight in the body and increases laziness."
     },
     {
       id: 11,
@@ -540,7 +561,7 @@ const QUIZ_DATA = {
         "I skip breakfast"
       ],
       correct: 0,
-      explanation: "A nutritious breakfast stabilizes metabolic energy throughout the day. Remaining on an empty stomach for >4 hours aggravates Vata dosha in the GI tract."
+      explanation: "A nutritious breakfast stabilizes metabolic energy throughout the day. Staying hungry for more than 4 hours can cause gas in the body and cause belching."
     },
     {
       id: 12,
@@ -551,7 +572,7 @@ const QUIZ_DATA = {
         "Feel unsatisfied after evacuation"
       ],
       correct: 0,
-      explanation: "Effortless morning elimination signifies optimal gut motility ('Samyak Mala Pravrutti'). Irregularity or feeling unsatisfied indicates Vata imbalance in the colon."
+      explanation: "If there is irregularity or dissatisfaction in the morning bowel movements without any medicine, it is due to an improper lifestyle and increased gas in the body."
     },
     {
       id: 13,
@@ -676,6 +697,9 @@ function setLanguage(langCode, scrollQuiz = false) {
   setElementText('result-badge-text', str.resultBadge);
   setElementText('result-title-text', str.resultTitle);
   setElementText('eval-title-text', str.evalTitle);
+  setElementText('legend-green-text', str.legendGreenText);
+  setElementText('legend-amber-text', str.legendAmberText);
+  setElementText('legend-red-text', str.legendRedText);
   setElementText('review-main-title', str.reviewMainTitle);
   setElementText('review-sub-title', str.reviewSubTitle);
   setElementText('btn-restart-text', str.btnRestartText);
@@ -684,6 +708,8 @@ function setLanguage(langCode, scrollQuiz = false) {
   // Render questions in selected language if not locked
   if (!isLocked) {
     renderQuestions();
+  } else if (currentViewState === 'RESULT') {
+    renderResultView();
   }
 
   // Update progress counter text
@@ -885,39 +911,307 @@ function submitQuiz() {
 // 7. RESULT CALCULATION & REVIEW GENERATION
 // ==========================================================================
 
-function renderResultView() {
-  const answersToUse = submittedAnswers || userAnswers;
-  const questions = QUIZ_DATA[currentLang];
-  let correctCount = 0;
+// ==========================================================================
+// 7. RESULT CALCULATION & SVG DONUT CHART GENERATION
+// ==========================================================================
 
-  // Calculate score strictly using frozen submittedAnswers snapshot
-  answersToUse.forEach((ans, idx) => {
-    if (ans === questions[idx].correct) {
-      correctCount++;
-    }
-  });
+// Global animation frame handles
+let counterAnimationFrame = null;
+let donutAnimFrame = null;
 
-  const percentage = Math.round((correctCount / 13) * 100);
+/**
+ * Smoothly count up score percentage in center of donut chart (if center element is present)
+ */
+function animateScoreCounter(targetPercentage) {
+  const percentageEl = document.getElementById('score-percentage-text');
+  if (!percentageEl) return;
 
-  // Update Score Percentage & Fraction
-  setElementText('score-percentage-text', `${percentage}%`);
-  setElementText('score-fraction-text', `${correctCount} / 13`);
-
-  // Animate Circle Gauge
-  const circleProgress = document.getElementById('score-circle-progress');
-  if (circleProgress) {
-    const circumference = 2 * Math.PI * 70; // r=70 -> ~439.8
-    const offset = circumference - (percentage / 100) * circumference;
-    setTimeout(() => {
-      circleProgress.style.strokeDashoffset = offset;
-    }, 150);
+  if (counterAnimationFrame) {
+    cancelAnimationFrame(counterAnimationFrame);
+    counterAnimationFrame = null;
   }
 
+  const duration = 1200;
+  const startTime = performance.now();
+  const startVal = 0;
+
+  function updateCount(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const easedProgress = progress * (2 - progress);
+    const currentVal = Math.round(startVal + (targetPercentage - startVal) * easedProgress);
+
+    percentageEl.innerText = `${currentVal}%`;
+
+    if (progress < 1) {
+      counterAnimationFrame = requestAnimationFrame(updateCount);
+    } else {
+      percentageEl.innerText = `${targetPercentage}%`;
+      counterAnimationFrame = null;
+    }
+  }
+
+  counterAnimationFrame = requestAnimationFrame(updateCount);
+}
+
+/**
+ * Utility: Convert polar coordinates (cx, cy, r, angleInRadians) to Cartesian (x, y)
+ * Reference: angle = -PI/2 is top 12 o'clock, increasing clockwise.
+ */
+function polarToCartesian(cx, cy, r, angleInRadians) {
+  return {
+    x: cx + r * Math.cos(angleInRadians),
+    y: cy + r * Math.sin(angleInRadians)
+  };
+}
+
+/**
+ * Utility: Generate SVG Path string for circular ring arc
+ */
+function describeArc(cx, cy, r, startAngle, endAngle) {
+  // Full 360 circle handling
+  if (endAngle - startAngle >= 2 * Math.PI - 0.0001) {
+    endAngle = startAngle + 2 * Math.PI - 0.0001;
+  }
+  const start = polarToCartesian(cx, cy, r, startAngle);
+  const end = polarToCartesian(cx, cy, r, endAngle);
+  const largeArcFlag = (endAngle - startAngle > Math.PI) ? 1 : 0;
+
+  return [
+    "M", start.x.toFixed(2), start.y.toFixed(2),
+    "A", r, r, 0, largeArcFlag, 1, end.x.toFixed(2), end.y.toFixed(2)
+  ].join(" ");
+}
+
+/**
+ * Render dynamic 3-segment donut chart with 60fps animation & smart label positioning
+ */
+function renderDonutChart(pctGreen, pctAmber, pctRed) {
+  const CX = 110;
+  const CY = 110;
+  const R_RING = 70; // Midpoint radius between inner r=56 and outer r=84
+
+  const wrapper = document.getElementById('score-circle-wrapper');
+  if (wrapper) wrapper.classList.remove('show-labels');
+
+  if (donutAnimFrame) {
+    cancelAnimationFrame(donutAnimFrame);
+    donutAnimFrame = null;
+  }
+
+  const duration = 900; // 0.9s smooth quad ease-out
+  const startTime = performance.now();
+
+  function animateFrame(now) {
+    const elapsed = now - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = progress * (2 - progress); // quad ease-out
+
+    const currentG = pctGreen * eased;
+    const currentA = pctAmber * eased;
+    const currentR = pctRed * eased;
+
+    drawDonutPaths(currentG, currentA, currentR);
+
+    if (progress < 1) {
+      donutAnimFrame = requestAnimationFrame(animateFrame);
+    } else {
+      drawDonutPaths(pctGreen, pctAmber, pctRed);
+      donutAnimFrame = null;
+      if (wrapper) wrapper.classList.add('show-labels');
+    }
+  }
+
+  donutAnimFrame = requestAnimationFrame(animateFrame);
+
+  function drawDonutPaths(pG, pA, pR) {
+    const totalP = pG + pA + pR;
+    if (totalP <= 0) return;
+
+    const angleG = (pG / 100) * 2 * Math.PI;
+    const angleA = (pA / 100) * 2 * Math.PI;
+    const angleR = (pR / 100) * 2 * Math.PI;
+
+    const startG = -Math.PI / 2; // Top 12 o'clock
+    const endG = startG + angleG;
+
+    const startA = endG;
+    const endA = startA + angleA;
+
+    const startR = endA;
+    const endR = startR + angleR;
+
+    const pathG = document.getElementById('segment-green');
+    const pathA = document.getElementById('segment-amber');
+    const pathR = document.getElementById('segment-red');
+
+    if (pathG) {
+      if (pG > 0) {
+        pathG.setAttribute('d', describeArc(CX, CY, R_RING, startG, endG));
+        pathG.style.display = 'block';
+      } else {
+        pathG.style.display = 'none';
+      }
+    }
+
+    if (pathA) {
+      if (pA > 0) {
+        pathA.setAttribute('d', describeArc(CX, CY, R_RING, startA, endA));
+        pathA.style.display = 'block';
+      } else {
+        pathA.style.display = 'none';
+      }
+    }
+
+    if (pathR) {
+      if (pR > 0) {
+        pathR.setAttribute('d', describeArc(CX, CY, R_RING, startR, endR));
+        pathR.style.display = 'block';
+      } else {
+        pathR.style.display = 'none';
+      }
+    }
+
+    // Midpoint angles for label positioning (target static percentages)
+    const targetAngleG = (pctGreen / 100) * 2 * Math.PI;
+    const targetAngleA = (pctAmber / 100) * 2 * Math.PI;
+    const targetAngleR = (pctRed / 100) * 2 * Math.PI;
+
+    const midG = startG + (targetAngleG / 2);
+    const midA = startG + targetAngleG + (targetAngleA / 2);
+    const midR = startG + targetAngleG + targetAngleA + (targetAngleR / 2);
+
+    updateLabel('label-green', 'line-green', pctGreen, midG, '#22c55e');
+    updateLabel('label-amber', 'line-amber', pctAmber, midA, '#d97706');
+    updateLabel('label-red', 'line-red', pctRed, midR, '#dc2626');
+  }
+
+  function updateLabel(labelId, lineId, pct, midAngle, colorHex) {
+    const lbl = document.getElementById(labelId);
+    const line = document.getElementById(lineId);
+
+    if (!lbl) return;
+
+    if (pct <= 0) {
+      lbl.style.display = 'none';
+      if (line) line.style.display = 'none';
+      return;
+    }
+
+    lbl.style.display = 'block';
+    lbl.textContent = `${pct}%`;
+
+    if (pct >= 12) {
+      // Large segment: place inside ring at R = 70 with standard 12px font
+      const pt = polarToCartesian(CX, CY, 70, midAngle);
+      lbl.setAttribute('x', pt.x.toFixed(2));
+      lbl.setAttribute('y', pt.y.toFixed(2));
+      lbl.setAttribute('font-size', '12px');
+      lbl.setAttribute('fill', '#ffffff');
+      lbl.style.fill = '#ffffff';
+      if (line) line.style.display = 'none';
+    } else if (pct >= 6) {
+      // Medium-small segment: place inside ring at R = 70 with 10px font
+      const pt = polarToCartesian(CX, CY, 70, midAngle);
+      lbl.setAttribute('x', pt.x.toFixed(2));
+      lbl.setAttribute('y', pt.y.toFixed(2));
+      lbl.setAttribute('font-size', '10px');
+      lbl.setAttribute('fill', '#ffffff');
+      lbl.style.fill = '#ffffff';
+      if (line) line.style.display = 'none';
+    } else {
+      // Very small segment (<6%): place outside ring at R = 104 with matching connector line
+      const ptInner = polarToCartesian(CX, CY, 84, midAngle);
+      const ptOuter = polarToCartesian(CX, CY, 93, midAngle);
+      const ptText = polarToCartesian(CX, CY, 104, midAngle);
+
+      lbl.setAttribute('x', ptText.x.toFixed(2));
+      lbl.setAttribute('y', ptText.y.toFixed(2));
+      lbl.setAttribute('font-size', '11px');
+      lbl.setAttribute('fill', colorHex);
+      lbl.style.fill = colorHex;
+
+      if (line) {
+        line.style.display = 'block';
+        line.setAttribute('x1', ptInner.x.toFixed(2));
+        line.setAttribute('y1', ptInner.y.toFixed(2));
+        line.setAttribute('x2', ptOuter.x.toFixed(2));
+        line.setAttribute('y2', ptOuter.y.toFixed(2));
+        line.setAttribute('stroke', colorHex);
+      }
+    }
+  }
+}
+
+function renderResultView() {
+  const answersToUse = submittedAnswers || userAnswers;
+  const totalQuestions = 13;
+
+  // 1. Calculate actual category counts from user's 13 submitted answers
+  let countGreen = 0; // Option index 0 (Excellent/Optimal)
+  let countAmber = 0; // Option index 1 (Medium/Moderate)
+  let countRed = 0;   // Option index 2 (Low/Poor)
+
+  answersToUse.forEach(ans => {
+    if (ans === 0) countGreen++;
+    else if (ans === 1) countAmber++;
+    else if (ans === 2) countRed++;
+  });
+
+  // 2. Calculate percentages totaling exactly 100%
+  let pctGreen = Math.round((countGreen / totalQuestions) * 100);
+  let pctAmber = Math.round((countAmber / totalQuestions) * 100);
+  let pctRed = 100 - pctGreen - pctAmber; // Guarantees exact 100% total sum
+
+  if (pctRed < 0) pctRed = 0;
+
+  // Overall score percentage based on optimal choices
+  const percentage = Math.round((countGreen / totalQuestions) * 100);
+
+  // Update Score Fraction
+  setElementText('score-fraction-text', `${countGreen} / 13`);
+
+  // 3. Render 3-segment donut chart & smart labels
+  renderDonutChart(pctGreen, pctAmber, pctRed);
+
+  // Trigger smooth score percentage counter if center element is present
+  animateScoreCounter(percentage);
+
+  // Render Overall Score Status Label
+  renderScoreStatusBadge(percentage);
+
   // Determine Evaluation Message Tier
-  renderEvaluationMessage(percentage, correctCount);
+  renderEvaluationMessage(percentage, countGreen);
 
   // Render Detailed Answer Review Cards using frozen answers snapshot
   renderAnswerReview();
+}
+
+/**
+ * Render overall score status label beneath score percentage
+ * Rules:
+ * 0%-33%: "Needs Improvement" - red
+ * 34%-66%: "Good Effort" - amber/yellow
+ * 67%-100%: "Excellent" - green
+ */
+function renderScoreStatusBadge(percentage) {
+  const badge = document.getElementById('score-status-badge');
+  const badgeText = document.getElementById('score-status-text');
+  if (!badge || !badgeText) return;
+
+  const ui = UI_STRINGS[currentLang];
+  badge.classList.remove('status-red', 'status-amber', 'status-green');
+
+  if (percentage <= 33) {
+    badge.classList.add('status-red');
+    badgeText.innerText = ui.statusNeedsImprovement;
+  } else if (percentage <= 66) {
+    badge.classList.add('status-amber');
+    badgeText.innerText = ui.statusGoodEffort;
+  } else {
+    badge.classList.add('status-green');
+    badgeText.innerText = ui.statusExcellent;
+  }
 }
 
 /**
@@ -979,39 +1273,56 @@ function renderAnswerReview() {
   let html = '';
 
   questions.forEach((q, idx) => {
-    const userChoice = answersToUse[idx];
-    const isCorrect = userChoice === q.correct;
+    const rawChoice = answersToUse[idx];
+    const userChoice = (rawChoice !== null && rawChoice !== undefined) ? rawChoice : 0;
     const formattedNum = (idx + 1).toString().padStart(2, '0');
 
-    const statusPillClass = isCorrect ? 'status-correct' : 'status-wrong';
-    const statusText = isCorrect ? `✓ ${ui.correctLabel}` : `✕ ${ui.wrongLabel}`;
-    const cardClass = isCorrect ? 'correct-card' : 'wrong-card';
+    let cardClass = 'correct-card';
+    let statusPillClass = 'status-correct';
+    let statusText = `✓ ${ui.correctLabel}`;
+    let userAnsRowClass = 'ans-correct-fix';
+
+    if (userChoice === 1) {
+      cardClass = 'amber-card';
+      statusPillClass = 'status-amber-pill';
+      statusText = `• ${ui.mediumLabel}`;
+      userAnsRowClass = 'ans-user-amber';
+    } else if (userChoice === 2) {
+      cardClass = 'wrong-card';
+      statusPillClass = 'status-wrong';
+      statusText = `✕ ${ui.wrongLabel}`;
+      userAnsRowClass = 'ans-user-wrong';
+    }
+
+    const isOptimal = (userChoice === 0);
 
     html += `
       <div class="review-card ${cardClass}">
         <div class="review-card-top">
           <span class="review-q-num">Q${formattedNum}</span>
-          <span class="review-status-pill ${statusPillClass}">${statusText}</span>
+          <!-- <span class="review-status-pill ${statusPillClass}">${statusText}</span> -->
         </div>
         <h4 class="review-q-title">${q.question}</h4>
 
         <div class="review-answers-box">
-          <div class="ans-row ${isCorrect ? 'ans-correct-fix' : 'ans-user-wrong'}">
+          <div class="ans-row ${userAnsRowClass}">
             <span class="ans-label">${ui.yourAnsLabel}</span>
             <span>${q.options[userChoice]}</span>
           </div>
 
-          ${!isCorrect ? `
+          ${!isOptimal ? `
             <div class="ans-row ans-correct-fix">
               <span class="ans-label">${ui.correctAnsLabel}</span>
-              <span>✓ ${q.options[q.correct]}</span>
+              <span>✓ ${q.options[0]}</span>
             </div>
           ` : ''}
         </div>
 
-        <div class="ayurvedic-advice-box">
-          <strong>🌿 JOGI Ayurved Guidance:</strong> ${q.explanation}
-        </div>
+        ${q.explanation ? `
+          <div class="ayurvedic-advice-box">
+            <strong>🌿 JOGI Ayurved Guidance:</strong> ${q.explanation}
+          </div>
+        ` : ''}
       </div>
     `;
   });
@@ -1041,9 +1352,38 @@ function restartQuiz() {
     submitBtn.disabled = false;
   }
 
-  // 4. Reset SVG gauge stroke
-  const circleProgress = document.getElementById('score-circle-progress');
-  if (circleProgress) circleProgress.style.strokeDashoffset = 440;
+  // 4. Reset SVG 3-segment donut & labels
+  if (donutAnimFrame) {
+    cancelAnimationFrame(donutAnimFrame);
+    donutAnimFrame = null;
+  }
+
+  const wrapper = document.getElementById('score-circle-wrapper');
+  if (wrapper) wrapper.classList.remove('show-labels');
+
+  ['segment-green', 'segment-amber', 'segment-red'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.removeAttribute('d');
+      el.style.display = 'none';
+    }
+  });
+
+  ['label-green', 'label-amber', 'label-red'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.style.display = 'none';
+  });
+
+  ['line-green', 'line-amber', 'line-red'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.style.display = 'none';
+  });
+
+  const percentageEl = document.getElementById('score-percentage-text');
+  if (percentageEl) {
+    percentageEl.innerText = '0%';
+    percentageEl.classList.remove('color-green', 'color-amber', 'color-red');
+  }
 
   // 5. Hide validation banner if active
   const banner = document.getElementById('validation-banner');
