@@ -28,7 +28,7 @@
   <header class="app-header">
     <div class="header-container">
       <div class="brand-logo">
-        <img src="logo.png" alt="JOGI Ayurved Logo" class="official-logo header-official-logo">
+        <img src="logo.png" alt="JOGI Ayurved Logo" class="official-logo header-official-logo" width="103" height="38">
       </div>
       <div class="header-right">
         <div class="lang-badge" id="current-lang-badge" onclick="scrollToSection('lang-section')">
@@ -275,8 +275,18 @@
           </div>
         </div>
 
-        <!-- Restart Button Container -->
+        <!-- Restart and Download Action Buttons Container -->
         <div class="restart-wrapper">
+          <a href="./Regular_diet_chart.png" download="JOGI-Ayurved-Weekly-Diet-Chart.png" class="btn-download"
+            id="btn-download-diet" role="button" onclick="downloadDietChart(event)" aria-label="Download Diet Chart">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            <span id="btn-download-text">ડાયટ ચાર્ટ ડાઉનલોડ કરો</span>
+          </a>
           <button class="btn-restart" onclick="restartQuiz()">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
@@ -294,7 +304,7 @@
   <!-- Footer -->
   <footer class="app-footer">
     <div class="container footer-container">
-      <img src="logo.png" alt="JOGI Ayurved Logo" class="official-logo footer-official-logo">
+      <img src="logo.png" alt="JOGI Ayurved Logo" class="official-logo footer-official-logo" width="103" height="38">
       <p class="footer-hospital">JOGI Ayurved MultiSpeciality Hospital </p>
       <p class="footer-copy" id="footer-copy-text">Promoting Holistic Health & Ayurvedic Awareness</p>
     </div>
