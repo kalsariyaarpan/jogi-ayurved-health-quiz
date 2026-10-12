@@ -1,5 +1,5 @@
 /**
- * JOGI AYURVED HEALTH QUIZ - SCRIPT
+ * JOGI AYURVED HEALTH QUIZ
  * Production-ready vanilla JS logic for hospital awareness event quiz.
  */
 
